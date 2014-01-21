@@ -1,14 +1,16 @@
 ﻿<div>
   <ul>
     <li each="var task in tasks">
-      <h3>${task.Name}</h3>
-      <p>
-        ${task.Description}</br>
-        Status:${task.Status}</br>
-        <a href="javascript:removeTask('${task.Id}')">Remove</a>
-        <a href="javascript:updateTaskModal('${task.Id}', '${task.Name}', '${task.Description}','${task.Status}')">Update</a>
-      </p>
-      </br>
+      <div  style="background-color:DCDCDC;border:2px solid black">
+        <h3>${task.Name}</h3>
+        <p>
+          ${task.Description}</br>
+          Status:${task.Status}</br>
+          <a href="javascript:removeTask('${task.Id}')">Remove</a>
+          <a href="javascript:updateTaskModal('${task.Id}', '${task.Name}', '${task.Description}','${task.Status}')">Update</a>
+        </p>
+      </div>
+        </br>
     </li>
   </ul>
 </div>

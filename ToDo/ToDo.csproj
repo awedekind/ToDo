@@ -181,7 +181,9 @@
     <Content Include="App_Start\Views\JavaScript\todo-service-api.js" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
-    <Content Include="App_Start\Views\ToDo\TaskPage.spark" />
+    <Content Include="App_Start\Views\ToDo\TaskPage.spark">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Start\Views\ToDo\_TaskList.spark">
       <SubType>Designer</SubType>
     </Content>
@@ -200,7 +202,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\Controllers\HomeController.cs" />
+    <Compile Include="App_Start\Controllers\HomeEndpoint.cs" />
     <Compile Include="App_Start\Controllers\IRavenController.cs" />
     <Compile Include="App_Start\Controllers\RavenController.cs" />
     <Compile Include="App_Start\Models\TaskInputModel.cs" />

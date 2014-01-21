@@ -11,6 +11,23 @@ namespace ToDo.App_Start.Models
         {
 
         }
+        public Task(string name, string description, string status)
+        {
+            this.Name = name;
+            this.Description = description;
+            if (status.Equals("ToDo"))
+            {
+                this.Status = State.ToDo;
+            }
+            else if (status.Equals("Doing"))
+            {
+                this.Status = State.Doing;
+            }
+            else if (status.Equals("Done"))
+            {
+                this.Status = State.Done;
+            }
+        }
         public Task(string name, string description, State status)
         {
             this.Name = name;

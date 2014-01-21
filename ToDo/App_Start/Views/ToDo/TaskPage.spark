@@ -1,7 +1,8 @@
-﻿<head>
+﻿<head style="background-color:A9A9A9">
   <title>Fubu ToDo App</title>
+  <h1 style="color:483D8B">Fubu ToDo</h1>
 </head>
-<body>
+<body style="background-color:A9A9A9">
   <viewdata model="ToDo.App_Start.Models.TaskPageViewModel"/>
   <a href="javascript:newTaskModal()">New Task</a>
   <TaskList tasks="Model.Tasks"/>

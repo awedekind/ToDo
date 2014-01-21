@@ -11,8 +11,8 @@ namespace ToDo
     {
         public ConfigureFubuMVC()
         {
-            Actions.IncludeClassesSuffixedWithController();
-            Routes.HomeIs<HomeController>(x => x.get_Index());
+            //Actions.IncludeClassesSuffixedWithController();
+            Routes.HomeIs<HomeEndpoint>(x => x.get_Index());
         }
     }
 
