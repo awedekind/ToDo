@@ -1,0 +1,14 @@
+﻿<use master="Application" />
+
+<html>
+	<head>
+		<use content="head" />
+    <script type="text/javascript" src="App_Start\Views\JavaScript\jquery.simplemodal-1.4.4.js"></script>
+    <script type="text/javascript" src="App_Start\Views\JavaScript\todo-service-api.js"></script>
+  </head>
+	<body>
+		<div><------- I'm from the Question Layout Begin -------></div>
+		<use content="view" />
+		<div><------- I'm from the Question Layout End-------></div>
+	</body>
+</html>

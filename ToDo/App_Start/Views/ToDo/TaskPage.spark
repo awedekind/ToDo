@@ -1,0 +1,14 @@
+﻿<head>
+  <title>Fubu ToDo App</title>
+</head>
+<body>
+  <viewdata model="ToDo.App_Start.Models.TaskPageViewModel"/>
+  <a href="javascript:newTaskModal()">New Task</a>
+  <TaskList tasks="Model.Tasks"/>
+</body>
+<footer>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="App_Start\Views\JavaScript\jquery.simplemodal-1.4.4.js"></script>
+  <script type="text/javascript" src="App_Start\Views\JavaScript\todo-service-api.js"></script>
+  <script type="text/javascript" src="App_Start\Views\JavaScript\todo-init-api.js"></script>
+</footer>
