@@ -8,9 +8,9 @@ namespace ToDo.App_Start.Models
     public class TaskPageViewModel
     {
         public TaskPageViewModel() { }
-        public TaskPageViewModel(List<Task> tasks)
+        public TaskPageViewModel(IList<Task> tasks)
         {
-            Tasks = tasks;
+            Tasks = (List<Task>)tasks;
         }
         public string Name { get; private set; }
         public string Description { get; private set; }

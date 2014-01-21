@@ -44,11 +44,9 @@ namespace ToDo
                     //        });
                     //x.ForRequestedType<IDocumentSession>()
                     //    .TheDefault.IsThis(store.OpenSession());
-                    var session = store.OpenSession();
-                    x.For<IDocumentSession>().Use(session);
+                    x.For<IDocumentSession>().Use(() => store.OpenSession());
                     x.For<IDocumentStore>().Use(store);
-                    RavenController controller = new RavenController(session);
-                    x.For<IRavenController>().Use(controller);
+                    x.For<IRavenController>().Use<RavenController>();
 
                 }))
                 .Bootstrap();

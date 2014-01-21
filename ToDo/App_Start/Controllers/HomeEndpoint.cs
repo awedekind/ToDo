@@ -19,7 +19,7 @@ namespace ToDo.App_Start.Controllers
         }
         public TaskPageViewModel get_Index()
         {
-            List<Task> tasks = _raven.LoadAllTasks();
+            List<Task> tasks =(List<Task>) _raven.LoadAllTasks();
             return new TaskPageViewModel(tasks);
         }
         public TaskPageViewModel UpdateTask_NameVal_DescriptionVal_IdTypeVal_IdVal_StatusVal(UrlSaveUpdateInputModel input)
@@ -28,8 +28,8 @@ namespace ToDo.App_Start.Controllers
             task.Id = input.IdTypeVal + "/" + input.IdVal;
             _raven.RemoveTask(input.IdTypeVal + "/" + input.IdVal);
             _raven.SaveTask(task);
-            Thread.Sleep(100);
-            List<Task> tasks = _raven.LoadAllTasks();
+            //Thread.Sleep(100);
+            List<Task> tasks = (List<Task>)_raven.LoadAllTasks();
             var taskPage = new TaskPageViewModel(tasks);
             return taskPage;
         }
@@ -37,7 +37,7 @@ namespace ToDo.App_Start.Controllers
         {
             _raven.SaveTask(new Task(input.NameVal, input.DescriptionVal, State.ToDo));
             Thread.Sleep(100);
-            List<Task> tasks = _raven.LoadAllTasks();
+            List<Task> tasks = (List<Task>)_raven.LoadAllTasks();
             var taskPage = new TaskPageViewModel(tasks);
             return taskPage;
         }

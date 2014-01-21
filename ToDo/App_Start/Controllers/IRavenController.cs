@@ -8,7 +8,7 @@ namespace ToDo.App_Start.Controllers
 {
     public interface IRavenController
     {
-        List<Task> LoadAllTasks();
+        IList<Task> LoadAllTasks();
         Task LoadTask(string id);
         void SaveTask(Task task);
         void RemoveTask(string id);

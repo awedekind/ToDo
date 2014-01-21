@@ -58,7 +58,7 @@ namespace ToDo.App_Start
             catch (Exception ex) { Console.Error.WriteLine(ex.Message); }
         }
 
-        public List<Task> LoadAllTasks()
+        public IList<Task> LoadAllTasks()
         {
             return _session.Query<Task>().ToList();
         }
