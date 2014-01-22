@@ -177,8 +177,8 @@
   <ItemGroup>
     <None Include="App_Start\Views\Layouts\Application.spark" />
     <Content Include="App_Start\Views\JavaScript\jquery.simplemodal-1.4.4.js" />
-    <Content Include="App_Start\Views\JavaScript\todo-init-api.js" />
     <Content Include="App_Start\Views\JavaScript\todo-service-api.js" />
+    <Content Include="App_Start\Views\JavaScript\todo-ui-api.js" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="App_Start\Views\ToDo\TaskPage.spark">
