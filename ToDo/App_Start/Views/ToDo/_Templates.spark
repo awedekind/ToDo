@@ -1,0 +1,43 @@
+﻿
+<script id="task-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <li class="task {{status}}" id="{{Id}}">
+        <h3>{{name}}</h3>
+        {{description}}</br>
+        Status: {{status}}</br>
+        <a href="#" id="updatetask" data-id="{{id}}" data-name="{{name}}"
+           data-status="{{status}}" data-description="{{description}}">Update</a>
+        <a href="#" id="removetask" data-id="{{id}}">Remove</a>
+    </li></br>
+    {{/each}}
+</script>
+
+<script id="new-task-modal-template" class="modal" type="text/x-handlebars-template">
+    <form id="newtaskform" class="modal">
+        <h2>Enter new Task:</h2>
+        <label for="name">Name: </label>
+        <input type="text" name="name" value="Task Name" /></br>
+        <label for="description">Description: </label>
+        <input type="text" name="description" value="Task Description" /></br>
+        <input id="newtaskmodal" type="button" name="createTask" value="Create" />
+    </form>
+</script>
+
+<script id="update-task-modal-template"  type="text/x-handlebars-template">
+    <form id="updatetaskform" class="modal ">
+        <h2>Update Task: {{name}}</h2>
+        <label for="name">Name: </label>
+        <input type="text" name="name" value="{{name}}" /></br>
+        <label for="description">Description: </label>
+        <input type="text" name="description" value="{{description}}" /></br>
+				<label for="status">Status: </label>
+				<select name="status">
+						<option value="ToDo">ToDo</option>
+						<option value="Doing">Doing</option>
+						<option value="Done">Done</option>
+				</select>
+        <input type="hidden" name="id" value="{{id}}" />
+        <!--<input type="hidden" name="status" value="{{status}}" /></br>-->
+        <input id="updatetaskmodal" type="button" name="updateTasky" value="Update" />
+    </form>
+</script>

@@ -1,0 +1,28 @@
+﻿body {
+    background-color: A9A9A9;
+}
+
+header {
+    color: 483D8B;
+}
+
+.modal {
+    background-color: 708090;
+    border: 2px solid black;
+    width: 200%;
+}
+
+.ToDo {
+    background-color: lightyellow;
+}
+.Doing {
+    background-color: lightblue;
+}
+.Done {
+    background-color: lightgreen;
+}
+
+.task {
+    border: 2px solid black;
+    width: 33%;
+}

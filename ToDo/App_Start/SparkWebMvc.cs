@@ -2,8 +2,6 @@ using System.Web.Mvc;
 using Spark;
 using Spark.Web.Mvc;
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(ToDo.App_Start.SparkWebMvc), "Start")]
-
 namespace ToDo.App_Start {
     public static class SparkWebMvc {
         public static void Start() {

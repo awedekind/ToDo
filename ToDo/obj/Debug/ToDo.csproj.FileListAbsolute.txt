@@ -248,3 +248,15 @@ c:\home\work\FubuMVC.ToDo\ToDo\bin\ko\System.Spatial.resources.dll
 c:\home\work\FubuMVC.ToDo\ToDo\bin\ru\System.Spatial.resources.dll
 c:\home\work\FubuMVC.ToDo\ToDo\bin\zh-Hans\System.Spatial.resources.dll
 c:\home\work\FubuMVC.ToDo\ToDo\bin\zh-Hant\System.Spatial.resources.dll
+c:\home\work\FubuMVC.ToDo\ToDo\bin\nunit.framework.dll
+c:\home\work\FubuMVC.ToDo\ToDo\bin\nunit.framework.xml
+c:\home\work\FubuMVC.ToDo\ToDo\bin\FubuTestingSupport.dll
+c:\home\work\FubuMVC.ToDo\ToDo\bin\nunit.mocks.dll
+c:\home\work\FubuMVC.ToDo\ToDo\bin\pnunit.framework.dll
+c:\home\work\FubuMVC.ToDo\ToDo\bin\Rhino.Mocks.dll
+c:\home\work\FubuMVC.ToDo\ToDo\bin\StructureMap.AutoMocking.dll
+c:\home\work\FubuMVC.ToDo\ToDo\bin\FubuTestingSupport.pdb
+c:\home\work\FubuMVC.ToDo\ToDo\bin\Rhino.Mocks.xml
+c:\home\work\FubuMVC.ToDo\ToDo\bin\StructureMap.AutoMocking.pdb
+c:\home\work\FubuMVC.ToDo\ToDo\bin\StructureMap.AutoMocking.xml
+c:\home\work\FubuMVC.ToDo\ToDo\bin\Newtonsoft.Json.xml

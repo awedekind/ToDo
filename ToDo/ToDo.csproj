@@ -96,6 +96,9 @@
     <Reference Include="FubuPersistence">
       <HintPath>..\packages\FubuPersistence.0.9.5.93\lib\net40\FubuPersistence.dll</HintPath>
     </Reference>
+    <Reference Include="FubuTestingSupport">
+      <HintPath>..\packages\FubuTestingSupport.1.2.0.272\lib\FubuTestingSupport.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlTags">
       <HintPath>..\packages\HtmlTags.2.0.0.181\lib\4.0\HtmlTags.dll</HintPath>
     </Reference>
@@ -121,6 +124,24 @@
     <Reference Include="Microsoft.WindowsAzure.Storage">
       <HintPath>..\packages\WindowsAzure.Storage.2.0.6.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.mocks">
+      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="NUnit.VisualStudio.TestAdapter">
+      <HintPath>..\packages\NUnitTestAdapter.1.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="pnunit.framework">
+      <HintPath>..\packages\NUnit.2.5.10.11092\lib\pnunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="Raven.Abstractions">
       <HintPath>..\packages\RavenDB.Database.2.5.2791-Unstable\lib\net45\Raven.Abstractions.dll</HintPath>
     </Reference>
@@ -133,6 +154,9 @@
     <Reference Include="Raven.Database">
       <HintPath>..\packages\RavenDB.Database.2.5.2791-Unstable\lib\net45\Raven.Database.dll</HintPath>
     </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="Spark">
       <HintPath>..\packages\Spark.1.7.5.3\lib\NET45\Spark.dll</HintPath>
     </Reference>
@@ -142,12 +166,16 @@
     <Reference Include="StructureMap">
       <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap.AutoMocking">
+      <HintPath>..\packages\structuremap.automocking.2.6.4.1\lib\net40\StructureMap.AutoMocking.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.Spatial, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
     </Reference>
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -175,10 +203,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Start\Views\Layouts\Application.spark" />
-    <Content Include="App_Start\Views\JavaScript\jquery.simplemodal-1.4.4.js" />
+    <Content Include="App_Readme\Handlebarsjs_README.md" />
+    <Content Include="App_Readme\Handlebarsjs_LICENSE" />
+    <Content Include="App_Start\Views\CSS\style.css" />
+    <Content Include="App_Start\Views\JavaScript\Libraries\jquery.simplemodal-1.4.4.js" />
+    <Content Include="App_Start\Views\JavaScript\todo-backend-api.js" />
     <Content Include="App_Start\Views\JavaScript\todo-service-api.js" />
     <Content Include="App_Start\Views\JavaScript\todo-ui-api.js" />
+    <Content Include="App_Start\Views\CSS\styles.less" />
+    <None Include="App_Start\Views\ToDo\_Templates.spark" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="App_Start\Views\ToDo\TaskPage.spark">
@@ -187,8 +220,7 @@
     <Content Include="App_Start\Views\ToDo\_TaskList.spark">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Start\Views\Layouts\ToDo.spark" />
-    <None Include="Views\Shared\_global.spark" />
+    <Content Include="App_Start\Views\JavaScript\Libraries\jquery-2.1.0.min.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -197,30 +229,38 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Start\Views\JavaScript\Libraries\handlebars.min.js" />
+    <Content Include="App_Start\Views\JavaScript\Libraries\lodash.min.js" />
+    <Content Include="App_Start\Views\JavaScript\Libraries\less-1.5.1.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\Controllers\HomeEndpoint.cs" />
-    <Compile Include="App_Start\Controllers\IRavenController.cs" />
-    <Compile Include="App_Start\Controllers\RavenController.cs" />
-    <Compile Include="App_Start\Models\TaskInputModel.cs" />
-    <Compile Include="App_Start\Models\TaskPageViewModel.cs" />
+    <Compile Include="App_Start\Controllers\HomeController.cs" />
+    <Compile Include="App_Start\JsonWriter\JsonWriterStrEnum.cs" />
+    <Compile Include="App_Start\Managers\IRavenManager.cs" />
+    <Compile Include="App_Start\Managers\RavenManager.cs" />
+    <Compile Include="App_Start\Models\Input\JsonInputModels.cs" />
+    <Compile Include="App_Start\Models\Input\UrlInputModels.cs" />
+    <Compile Include="App_Start\Models\Output\JsonOutputModels.cs" />
+    <Compile Include="App_Start\Models\Output\TaskPageViewModel.cs" />
     <Compile Include="App_Start\Models\Task.cs" />
     <Compile Include="App_Start\SparkWebMvc.cs" />
     <Compile Include="App_Start\Registries\ConfigureFubuMVC.cs" />
+    <Compile Include="App_Start\Tests\HomeEndpointTests.cs" />
+    <Compile Include="App_Start\Tests\TaskTests.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="App_Start\Registries\RavenDBRegistry.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Home\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

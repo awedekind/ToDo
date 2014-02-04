@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
 using FubuMVC.Core;
 using FubuMVC.StructureMap;
 using StructureMap;
-using Bottles;
 using FubuPersistence.RavenDb;
-using Raven.Client.Embedded;
 using Raven.Client;
 using Raven.Client.Document;
-using ToDo.App_Start;
-using ToDo.App_Start.Controllers;
+using ToDo.Registries;
+using ToDo.Controllers;
+using ToDo.Managers;
 
 namespace ToDo
 {
@@ -44,44 +41,11 @@ namespace ToDo
                     //        });
                     //x.ForRequestedType<IDocumentSession>()
                     //    .TheDefault.IsThis(store.OpenSession());
-                    x.For<IDocumentSession>().Use(() => store.OpenSession());
+                    x.For<IDocumentSession>().Use(store.OpenSession);
                     x.For<IDocumentStore>().Use(store);
-                    x.For<IRavenController>().Use<RavenController>();
-
+                    x.For<IRavenManager>().Use<RavenManager>();
                 }))
                 .Bootstrap();
-
-            
-        }
-
-        protected void Session_Start(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Application_BeginRequest(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Application_AuthenticateRequest(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Application_Error(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Session_End(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Application_End(object sender, EventArgs e)
-        {
-
         }
     }
 }

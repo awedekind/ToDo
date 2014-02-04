@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Node.js</id>
+    <version>0.10.25</version>
+    <title>Node.js</title>
+    <authors>Joyent, Inc.</authors>
+    <owners>Joyent, Inc.</owners>
+    <licenseUrl>https://raw.github.com/joyent/node/v0.10.25/LICENSE</licenseUrl>
+    <projectUrl>http://nodejs.org/</projectUrl>
+    <iconUrl>https://bitpay.com/img/js64.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications.
+
+Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.</description>
+    <releaseNotes>- uv: Upgrade to v0.10.23
+- npm: Upgrade to v1.3.24
+- v8: Fix enumeration for objects with lots of properties
+- child_process: fix spawn() optional arguments (Sam Roberts)
+- cluster: report more errors to workers (Fedor Indutny)
+- domains: exit() only affects active domains (Ryan Graham)
+- src: OnFatalError handler must abort() (Timothy J Fontaine)
+- stream: writes may return false but forget to emit drain (Yang Tianyang)</releaseNotes>
+    <copyright>© 2014 Joyent, Inc.</copyright>
+    <language />
+    <tags>nodejs exe javascript runtime server</tags>
+  </metadata>
+</package>
