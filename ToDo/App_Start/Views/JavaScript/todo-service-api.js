@@ -42,6 +42,8 @@
             }
         });
         $.modal.close();
+        UiApi.renderUpdatedTasks();
+        $(document).ready(UiApi.shuffle());
     };
 
     var updateTask = function (task) {
@@ -53,6 +55,7 @@
         });
         $.modal.close();
         UiApi.renderUpdatedTasks();
+        $(document).ready(UiApi.shuffle());
     };
 
     var removeTask = function (id) {
@@ -65,6 +68,7 @@
             async: false,
         });
         UiApi.renderUpdatedTasks();
+        $(document).ready(UiApi.shuffle());
     };
 
     return {

@@ -1,22 +1,20 @@
 ﻿var UiApi = (function () {
-    var compileTemplate = function(selector) {
+    var compileTemplate = function (selector) {
         var templateScript = $(selector).html();
         return Handlebars.compile(templateScript);
     };
 
     var renderTask = function (task) {
         var template = compileTemplate("#task-template");
-        $(".tasks").append(template(task));
+        $("#tasklist").append(template(task));
     };
 
     var renderUpdatedTasks = function () {
-        $(".tasks").empty();
-        console.log("task emptied");
+        $("#tasklist").empty();
         var tasks = ServiceApi.loadTasks();
-        console.log(JSON.stringify(tasks));
         var task = tasks["tasks"];
-        console.log(JSON.stringify(task));
         renderTask(task);
+
     };
 
     var newTaskModal = function () {
@@ -29,17 +27,45 @@
         $.modal(template(task));
     };
 
+    var shuffle = function () {
+        /*Shuffle Init*/
+        var $grid = $('#tasklist');
+        $grid.shuffle({
+            itemSelector: '.task'
+        });
+
+        /* reshuffle when user clicks a filter item */
+        $('#filter a').click(function (e) {
+            e.preventDefault();
+
+            // set active class
+            $('#filter a').removeClass('active');
+            $(this).addClass('active');
+
+            // get group name from clicked item
+            var groupName = $(this).attr('data-group');
+
+            // reshuffle grid
+            $grid.shuffle('shuffle', groupName);
+        });
+    };
+
     return {
         newTaskModal: newTaskModal,
         updateTaskModal: updateTaskModal,
         renderTask: renderTask,
         renderUpdatedTasks: renderUpdatedTasks,
-        compileTemplate: compileTemplate
+        compileTemplate: compileTemplate,
+        shuffle: shuffle
     };
 }());
+
+
+
 
 $(function () {
     var tasks = ServiceApi.loadTasks();
     var template = UiApi.compileTemplate("#task-template");
-    $(".tasks").append(template(tasks["tasks"]));
+    $("#tasklist").append(template(tasks["tasks"]));
+    UiApi.shuffle();
 });

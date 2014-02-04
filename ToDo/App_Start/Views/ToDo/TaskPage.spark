@@ -9,8 +9,12 @@
     <h1>Fubu ToDo</h1>
   </header>
   <viewdata model="ToDo.Models.Output.TaskPageViewModel"/>
-  <a href="#" id="newtask">New Task</a>
-  <TaskList/>
+  <a href="#" class="float-right" id="newtask">New Task</a>
+  </br>
+
+  <ShuffleFilter/>
+  <!--<TaskList/>-->
+  <div id="tasklist"></div>
 </body>
 
 <footer>
@@ -19,6 +23,7 @@
   <script type="text/javascript" src="App_Start\Views\JavaScript\Libraries\lodash.min.js"></script>
   <script type="text/javascript" src="App_Start\Views\JavaScript\Libraries\jquery.simplemodal-1.4.4.js"></script>
   <script type="text/javascript" src="App_Start\Views\JavaScript\Libraries\handlebars.min.js"></script>
+  <script type="text/javascript" src="App_Start\Views\JavaScript\Libraries\jquery.shuffle.js"></script>
   <!--Custom-->
   <script type="text/javascript" src="App_Start\Views\JavaScript\todo-service-api.js"></script>
   <script type="text/javascript" src="App_Start\Views\JavaScript\todo-ui-api.js"></script>

@@ -20,7 +20,7 @@ namespace ToDo.JsonWriter
 
         public void Write(object output, string mimeType)
         {
-            
+
             this._outputWriter.Write(mimeType, JsonConvert.SerializeObject(output));
 
         }

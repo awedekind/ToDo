@@ -6,23 +6,73 @@ header {
     color: 483D8B;
 }
 
+a {
+    background: #ddd;
+    display: block;
+    float: left;
+}
+
+#filter {
+    list-style-type: none;
+}
+
+    #filter a {
+        margin: 3px;
+        padding: 2px;
+        border: 1px solid black;
+    }
+
+
+
+.float-left {
+    float: left;
+    position: relative;
+    top: -10px;
+    margin-right: 15px;
+}
+
+.float-right {
+    float: right;
+    position: relative;
+    top: -3px;
+    margin: 3px;
+}
+
 .modal {
     background-color: 708090;
     border: 2px solid black;
-    width: 200%;
+    width: 400px;
 }
 
-.ToDo {
-    background-color: lightyellow;
-}
-.Doing {
-    background-color: lightblue;
-}
-.Done {
-    background-color: lightgreen;
+#tasklist {
+    clear: both;
+    position: relative;
 }
 
 .task {
     border: 2px solid black;
-    width: 33%;
+    width: 400px;
+    margin: 5px;
+}
+
+    .task p {
+        position: relative;
+    }
+
+    .task a {
+        margin: 3px;
+        padding: 2px;
+        border: 1px solid black;
+    }
+
+.ToDo {
+    background-color: lightyellow;
+}
+
+.Doing {
+    background-color: lightblue;
+}
+
+.Done {
+    background-color: lightgreen;
 }

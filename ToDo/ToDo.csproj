@@ -206,18 +206,17 @@
     <Content Include="App_Readme\Handlebarsjs_README.md" />
     <Content Include="App_Readme\Handlebarsjs_LICENSE" />
     <Content Include="App_Start\Views\CSS\style.css" />
+    <Content Include="App_Start\Views\JavaScript\Libraries\jquery.shuffle.js" />
     <Content Include="App_Start\Views\JavaScript\Libraries\jquery.simplemodal-1.4.4.js" />
     <Content Include="App_Start\Views\JavaScript\todo-backend-api.js" />
     <Content Include="App_Start\Views\JavaScript\todo-service-api.js" />
     <Content Include="App_Start\Views\JavaScript\todo-ui-api.js" />
     <Content Include="App_Start\Views\CSS\styles.less" />
+    <Content Include="App_Start\Views\ToDo\_ShuffleFilter.spark" />
     <None Include="App_Start\Views\ToDo\_Templates.spark" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="App_Start\Views\ToDo\TaskPage.spark">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="App_Start\Views\ToDo\_TaskList.spark">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Start\Views\JavaScript\Libraries\jquery-2.1.0.min.js" />

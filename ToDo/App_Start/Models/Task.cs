@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace ToDo.Models
 {
@@ -10,6 +12,7 @@ namespace ToDo.Models
         public string Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
         public State Status { get; set; }
 
         public Task()

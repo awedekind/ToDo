@@ -1,0 +1,7 @@
+﻿<div id="filter">
+    <p class="float-left">Filters: </p>
+    <a class="active" href="#" data-group="all">All Tasks</a>
+    <a href="#" class="ToDo" data-group="ToDo">ToDo</a>
+    <a href="#" class="Doing" data-group="Doing">Doing</a>
+    <a href="#" class="Done" data-group="Done">Done</a>
+</div>

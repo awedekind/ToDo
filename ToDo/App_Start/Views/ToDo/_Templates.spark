@@ -1,14 +1,14 @@
 ﻿
 <script id="task-template" type="text/x-handlebars-template">
     {{#each this}}
-    <li class="task {{status}}" id="{{Id}}">
+    <div id="{{id}}" class="task {{status}}" data-groups='["all","{{status}}"]'>
         <h3>{{name}}</h3>
-        {{description}}</br>
-        Status: {{status}}</br>
-        <a href="#" id="updatetask" data-id="{{id}}" data-name="{{name}}"
+        <p>{{description}}</p>
+        <p>Status: {{status}}</p>
+        <a href="#" class="float-right" id="updatetask" data-id="{{id}}" data-name="{{name}}"
            data-status="{{status}}" data-description="{{description}}">Update</a>
-        <a href="#" id="removetask" data-id="{{id}}">Remove</a>
-    </li></br>
+        <a href="#" class="float-right" id="removetask" data-id="{{id}}">Remove</a>
+    </div>
     {{/each}}
 </script>
 
@@ -23,19 +23,19 @@
     </form>
 </script>
 
-<script id="update-task-modal-template"  type="text/x-handlebars-template">
+<script id="update-task-modal-template" type="text/x-handlebars-template">
     <form id="updatetaskform" class="modal ">
         <h2>Update Task: {{name}}</h2>
         <label for="name">Name: </label>
         <input type="text" name="name" value="{{name}}" /></br>
         <label for="description">Description: </label>
         <input type="text" name="description" value="{{description}}" /></br>
-				<label for="status">Status: </label>
-				<select name="status">
-						<option value="ToDo">ToDo</option>
-						<option value="Doing">Doing</option>
-						<option value="Done">Done</option>
-				</select>
+        <label for="status">Status: </label>
+        <select name="status">
+            <option value="ToDo">ToDo</option>
+            <option value="Doing">Doing</option>
+            <option value="Done">Done</option>
+        </select>
         <input type="hidden" name="id" value="{{id}}" />
         <!--<input type="hidden" name="status" value="{{status}}" /></br>-->
         <input id="updatetaskmodal" type="button" name="updateTasky" value="Update" />
