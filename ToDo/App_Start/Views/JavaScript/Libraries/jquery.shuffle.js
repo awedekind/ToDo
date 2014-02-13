@@ -1078,7 +1078,6 @@ Shuffle.settings = {
     styleQueue: []
 };
 
-
 // Plugin definition
 $.fn.shuffle = function( opts ) {
     var args = Array.prototype.slice.call( arguments, 1 );

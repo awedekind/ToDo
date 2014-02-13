@@ -7,12 +7,7 @@ namespace ToDo.Models.Output
 {
     public class TaskPageViewModel
     {
+        public string Id { get; set; }
         public TaskPageViewModel() { }
-        //public TaskPageViewModel(IList<Task> tasks)
-        //{
-        //    Tasks = (IList<Task>)tasks;
-        //}
-        
-        //public IList<Task> Tasks { get; set; }
     }
 }

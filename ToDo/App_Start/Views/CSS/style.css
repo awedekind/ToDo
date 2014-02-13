@@ -1,15 +1,27 @@
 ﻿body {
-    background-color: A9A9A9;
+    background-color: #999;
 }
 
 header {
-    color: 483D8B;
+    color: Indigo;
+    background-color: #666;
+    padding: 5px;
 }
 
+    header h1 {
+        margin-left: 5%;
+    }
+
 a {
-    background: #ddd;
+    background: #ccc;
     display: block;
     float: left;
+}
+
+.new-item {
+    margin-top: 15px;
+    padding: 2px;
+    border: 1px solid black;
 }
 
 #filter {
@@ -34,7 +46,6 @@ a {
 .float-right {
     float: right;
     position: relative;
-    top: -3px;
     margin: 3px;
 }
 
@@ -49,25 +60,27 @@ a {
     position: relative;
 }
 
-.task {
+#projectlist {
+    clear: both;
+    position: relative;
+}
+
+.item {
+    background-color: lightyellow;
     border: 2px solid black;
     width: 400px;
     margin: 5px;
 }
 
-    .task p {
+    .item p {
         position: relative;
     }
 
-    .task a {
+    .item a {
         margin: 3px;
         padding: 2px;
         border: 1px solid black;
     }
-
-.ToDo {
-    background-color: lightyellow;
-}
 
 .Doing {
     background-color: lightblue;

@@ -1,67 +1,43 @@
 ﻿var UiApi = (function () {
     var compileTemplate = function (selector) {
         var templateScript = $(selector).html();
+        //console.log(templateScript);
         return Handlebars.compile(templateScript);
     };
 
-    var renderTask = function (task) {
-        var template = compileTemplate("#task-template");
-        $("#tasklist").append(template(task));
-        $(document).ready(UiApi.shuffle());
-    };
-
-    var renderUpdatedTasks = function () {
-        $("#tasklist").empty();
-        var tasks = ServiceApi.loadTasks();
-        var task = tasks["tasks"];
-        renderTask(task);
-
-    };
-
-    var newTaskModal = function () {
-        var template = compileTemplate("#new-task-modal-template");
-        $.modal(template());
-    };
-
-    var updateTaskModal = function (task) {
-        var template = compileTemplate("#update-task-modal-template");
+    /*Generates a modal based on the html template*/
+    var genModal = function (element, task) {
+        var template = compileTemplate(element);
         $.modal(template(task));
     };
 
-    var shuffle = function () {
-        console.log("SHUFFLING");
-        /*Shuffle Init*/
-        var $grid = $('#tasklist');
+    /*inits shuffle*/
+    var shuffleItems = function ($grid) {
         $grid.shuffle({
-            itemSelector: '.task'
+            itemSelector: ".item"
         });
+    };
 
-        /* reshuffle when user clicks a filter item */
+    /* reshuffle when user clicks a filter item */
+    var shuffleFilter = function ($grid) {
         $('#filter a').click(function (e) {
-            e.preventDefault();
+            //e.preventDefault();
             $('#filter a').removeClass('active');
             $(this).addClass('active');
-            var groupName = $(this).attr('data-group');
+            var groupName = $(this).attr('data-group'); 
             $grid.shuffle('shuffle', groupName);
+            return false;
         });
     };
 
     return {
-        newTaskModal: newTaskModal,
-        updateTaskModal: updateTaskModal,
-        renderTask: renderTask,
-        renderUpdatedTasks: renderUpdatedTasks,
-        compileTemplate: compileTemplate,
-        shuffle: shuffle
+        genModal: genModal,
+        shuffleItems: shuffleItems,
+        shuffleFilter: shuffleFilter,
+        compileTemplate: compileTemplate
     };
 }());
 
 
 
 
-$(function () {
-    var tasks = ServiceApi.loadTasks();
-    var template = UiApi.compileTemplate("#task-template");
-    $("#tasklist").append(template(tasks["tasks"]));
-    UiApi.shuffle();
-});

@@ -213,6 +213,9 @@
     <Content Include="App_Start\Views\JavaScript\todo-ui-api.js" />
     <Content Include="App_Start\Views\CSS\styles.less" />
     <Content Include="App_Start\Views\ToDo\_ShuffleFilter.spark" />
+    <Content Include="App_Start\Views\ToDo\ProjectPage.spark" />
+    <Content Include="App_Start\Views\ToDo\_TDFooter.spark" />
+    <Content Include="App_Start\Views\ToDo\_TDHeader.spark" />
     <None Include="App_Start\Views\ToDo\_Templates.spark" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
@@ -243,7 +246,9 @@
     <Compile Include="App_Start\Models\Input\JsonInputModels.cs" />
     <Compile Include="App_Start\Models\Input\UrlInputModels.cs" />
     <Compile Include="App_Start\Models\Output\JsonOutputModels.cs" />
+    <Compile Include="App_Start\Models\Output\ProjectPageViewModel.cs" />
     <Compile Include="App_Start\Models\Output\TaskPageViewModel.cs" />
+    <Compile Include="App_Start\Models\Project.cs" />
     <Compile Include="App_Start\Models\Task.cs" />
     <Compile Include="App_Start\SparkWebMvc.cs" />
     <Compile Include="App_Start\Registries\ConfigureFubuMVC.cs" />

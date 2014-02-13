@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Transactions;
 using System.Web;
 using Raven.Client;
 using ToDo.Models;
-using Raven.Client.Document;
-using ToDo.Controllers;
 
 namespace ToDo.Managers
 {
-    public class RavenManager : IRavenManager
+    public class RavenManager<T> : IRavenManager<T> where T : Project
     {
         private readonly IDocumentSession _session;
 
@@ -19,36 +16,42 @@ namespace ToDo.Managers
             _session = session;
         }
 
-        public Task LoadTask(string id)
+        public T Load(string id)
         {
-            return _session.Load<Task>(id);
+            return _session.Load<T>(id);
         }
 
-        public IList<Task> LoadAllTasks()
+        public IList<T> LoadMany(string projectId)
         {
-            return _session.Query<Task>().ToList();
+							return _session.Query<T>().Where(x => x.ProjectId == projectId).ToList();
         }
 
-        public Task SaveTask(Task task)
+        public IList<T> LoadAll()
         {
-            if (task.Id != null)
+            return _session.Query<T>().ToList();
+        }
+
+        public T Save(T project, string id)
+        {
+            if (id != null)
             {
-                _session.Store(task, task.Id);
+                _session.Store(project, id);
             }
             else
             {
-                _session.Store(task);
+                _session.Store(project);
             }
             _session.SaveChanges();
 
-            return task;
+            return project;
         }
 
-        public void RemoveTask(string id)
+        public string Remove(string id)
         {
-            Task oldTask = LoadTask(id);
-            _session.Delete(oldTask);
+            var item = Load(id);
+            _session.Delete(item);
             _session.SaveChanges();
+            return id;
         }
     }
 }

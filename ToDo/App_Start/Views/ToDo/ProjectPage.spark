@@ -1,0 +1,27 @@
+﻿<TDHeader />
+
+<body>
+    <header>
+        <h1>Projects</h1>
+    </header>
+    <viewdata model="ToDo.Models.Output.ProjectPageViewModel" />
+    <div>
+
+        <a href="#" class="float-right new-item" id="newproject">Add Project</a>
+    </div>
+    <div id="projectlist"></div>
+</body>
+
+<footer>
+    <TDFooter />
+    <script type="text/javascript">
+    	$(function () {
+    		ServiceApi.load(function (projects) {
+    			var element = $("#projectlist"),
+							template = UiApi.compileTemplate("#project-template");
+    			element.append(template(projects["items"]));
+    			UiApi.shuffleItems(element);
+    		}, "projects");
+    	});
+    </script>
+</footer>

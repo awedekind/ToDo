@@ -1,104 +1,148 @@
-﻿//using Raven.Client;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Web;
+﻿using System;
 using ToDo.Models;
 using ToDo.Models.Input;
 using ToDo.Models.Output;
 using ToDo.Managers;
-//using FubuCore;
-//using FubuMVC.Core;
 
 namespace ToDo.Controllers
 {
     public class HomeController
     {
-        private readonly IRavenManager _raven;
+        private readonly IRavenManager<Task> _ravenTaskManager;
+        private readonly IRavenManager<Project> _ravenProjectManager;
 
-        public HomeController(IRavenManager raven)
+        public HomeController(IRavenManager<Task> ravenTaskManager, IRavenManager<Project> ravenProjectManager)
         {
-            _raven = raven;
+            _ravenTaskManager = ravenTaskManager;
+            _ravenProjectManager = ravenProjectManager;
         }
 
-        public TaskPageViewModel get_Index()
+        //public void setRavenTaskManager(IRavenManager<Task> irtm)
+        //{
+        //    _ravenTaskManager = irtm;
+        //}
+
+        /*Home Page*/
+        public ProjectPageViewModel get_ProjectPage()
         {
-            //var tasks = _raven.LoadAllTasks();
-            return new TaskPageViewModel();
+            return new ProjectPageViewModel();
         }
 
-        public TaskListJsonResponse get_Tasks()
+        public TaskPageViewModel get_TaskPage_IdType_Id(TaskPageInput model)
         {
-            return new TaskListJsonResponse
+            return new TaskPageViewModel
             {
-                Tasks = _raven.LoadAllTasks()
+                Id = model.GetId()
             };
         }
 
-        public TaskJsonResponse post_UpdateTask(UpdateTaskJsonInput model)
+        /*Task Endpoints*/
+        public ListJsonResponse<Task> get_Tasks()
+        {
+            return new ListJsonResponse<Task>
+            {
+                Items = _ravenTaskManager.LoadAll()
+            };
+        }
+
+        public ItemJsonResponse<Task> post_TaskNew(SaveJsonInput model)
+        {
+            var task = _ravenTaskManager.Save(new Task(model.ProjectId, model.Name, model.Description), null);
+
+            return new ItemJsonResponse<Task>
+            {
+                Item = task
+            };
+        }
+
+        public ItemJsonResponse<Task> post_TaskUpdate(UpdateTaskJsonInput model)
         {
             var task = new Task
             {
                 Name = model.Name,
                 Description = model.Description,
                 Id = model.Id,
+                ProjectId = model.ProjectId,
                 Status = Task.StateFromString(model.Status)
             };
 
-            _raven.SaveTask(task);
+            _ravenTaskManager.Save(task, task.Id);
 
-            return new TaskJsonResponse
+            return new ItemJsonResponse<Task>
             {
-                Task = task
+                Item = task
             };
         }
-        //public void post_UpdateTask_Name_Description_IdType_Id_Status(UrlSaveUpdateInputModel input)
-        //{
-        //    var task = new Task(input.Name, input.Description, input.Status);
-        //    var id = input.GetId();
-        //    task.Id = id;
-        //    _raven.RemoveTask(id);
-        //    _raven.SaveTask(task);
-        //    //var tasks = _raven.LoadAllTasks();
-        //    //var taskPage = new TaskPageViewModel(tasks);
-        //    //return taskPage;
-        //}
 
-        public TaskJsonResponse post_NewTask(SaveTaskJsonInput model)
+        public IdJsonOutput post_TaskRemove(IdJsonInput model)
         {
-            var task = _raven.SaveTask(new Task(model.Name, model.Description));
+            var id = _ravenTaskManager.Remove(model.Id);
 
-            //return new TaskListJsonResponse
-            //{
-            //    Tasks = _raven.LoadAllTasks()
-            //};
-
-            return new TaskJsonResponse
+            return new IdJsonOutput
             {
-                Task = task
+                Id = id
             };
         }
-        //public TaskPageViewModel put_NewTask_Name_Description(UrlSaveUpdateInputModel input)
-        //{
-        //    _raven.SaveTask(new Task(input.Name, input.Description, State.ToDo));
-        //    var tasks = _raven.LoadAllTasks();
-        //    return new TaskPageViewModel(tasks);
-        //}
 
-        public TaskListJsonResponse post_RemoveTask(RemoveTaskJsonInput model)
+        /*Project Endpoints*/
+        public ListJsonResponse<Project> get_Projects()
         {
-            _raven.RemoveTask(model.Id);
-
-            return new TaskListJsonResponse
+            return new ListJsonResponse<Project>
             {
-                Tasks = _raven.LoadAllTasks()
+                Items = _ravenProjectManager.LoadAll()
             };
         }
-        //public TaskPageViewModel delete_RemoveTask_IdType_Id(UrlIdInputModel input)
-        //{
-        //    var id = input.GetId();
-        //    _raven.RemoveTask(id);
-        //    return new TaskPageViewModel(_raven.LoadAllTasks());
-        //}
+
+        public ListJsonResponse<Task> post_ProjectTasks(IdJsonInput model)
+        {
+            var tasks = _ravenTaskManager.LoadMany(model.Id);
+
+            return new ListJsonResponse<Task>
+            {
+                Items = tasks
+            };
+        }
+
+        public ItemJsonResponse<Project> post_ProjectNew(SaveJsonInput model)
+        {
+            var project = new Project
+            {
+                Name = model.Name,
+                Description = model.Description
+            };
+
+            project = _ravenProjectManager.Save(project, null);
+
+            return new ItemJsonResponse<Project>
+            {
+                Item = project
+            };
+        }
+
+        public ItemJsonResponse<Project> post_ProjectUpdate(UpdateProjectJsonInput model)
+        {
+            var project = new Project
+            {
+                Id = model.Id,
+                Name = model.Name,
+                Description = model.Description,
+            };
+
+            _ravenProjectManager.Save(project, project.Id);
+
+            return new ItemJsonResponse<Project>
+            {
+                Item = project
+            };
+        }
+
+        public IdJsonOutput post_ProjectRemove(IdJsonInput model)
+        {
+            var id = _ravenProjectManager.Remove(model.Id);
+            return new IdJsonOutput
+            {
+                Id = id
+            };
+        }
     }
 }

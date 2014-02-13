@@ -20,7 +20,7 @@ namespace ToDo.Registries
         public ConfigureFubuMVC()
         {
             Actions.IncludeClassesSuffixedWithController();
-            Routes.HomeIs<HomeController>(x => x.get_Index());
+            Routes.HomeIs<HomeController>(x => x.get_ProjectPage());
             Policies.Add<TransactionPolicy>();
             Services(x => x.ReplaceService<IJsonWriter, JsonWriterStrEnum>());
         }

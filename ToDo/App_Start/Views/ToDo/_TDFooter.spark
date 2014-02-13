@@ -1,0 +1,14 @@
+﻿<footer>
+    <!--Libraries-->
+    <script type="text/javascript" src="\App_Start\Views\JavaScript\Libraries\jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="\App_Start\Views\JavaScript\Libraries\lodash.min.js"></script>
+    <script type="text/javascript" src="\App_Start\Views\JavaScript\Libraries\jquery.simplemodal-1.4.4.js"></script>
+    <script type="text/javascript" src="\App_Start\Views\JavaScript\Libraries\handlebars.min.js"></script>
+    <script type="text/javascript" src="\App_Start\Views\JavaScript\Libraries\jquery.shuffle.js"></script>
+    <!--Custom-->
+    <script type="text/javascript" src="\App_Start\Views\JavaScript\todo-service-api.js"></script>
+    <script type="text/javascript" src="\App_Start\Views\JavaScript\todo-ui-api.js"></script>
+    <script type="text/javascript" src="\App_Start\Views\JavaScript\todo-backend-api.js"></script>
+    <!--Templates-->
+    <Templates/>
+</footer>

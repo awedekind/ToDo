@@ -1,33 +1,35 @@
-﻿<head >
-  <script type="text/javascript" src="App_Start\Views\JavaScript\Libraries\less-1.5.1.min.js"></script>
-  <link rel="stylesheet" type="text" href="App_Start\Views\CSS\style.css"/>
-  <title>Fubu ToDo App</title>
-</head>
+﻿<TDHeader/>
 
 <body>
   <header>
-    <h1>Fubu ToDo</h1>
+    <h1>Tasks</h1>
   </header>
   <viewdata model="ToDo.Models.Output.TaskPageViewModel"/>
-  <a href="#" class="float-right" id="newtask">New Task</a>
-  </br>
-
-  <ShuffleFilter/>
+  <div id="project" data-id="${Model.Id}"/>
+  <div>
+    <a href="#" class="float-right new-item" id="newtask">New Task</a>
+    <a href="\" class="float-right new-item" id="projectspage">Projects</a>
+    <ShuffleFilter/>
+  </div>
   <!--<TaskList/>-->
   <div id="tasklist"></div>
 </body>
 
 <footer>
-  <!--Libraries-->
-  <script type="text/javascript" src="App_Start\Views\JavaScript\Libraries\jquery-2.1.0.min.js"></script>
-  <script type="text/javascript" src="App_Start\Views\JavaScript\Libraries\lodash.min.js"></script>
-  <script type="text/javascript" src="App_Start\Views\JavaScript\Libraries\jquery.simplemodal-1.4.4.js"></script>
-  <script type="text/javascript" src="App_Start\Views\JavaScript\Libraries\handlebars.min.js"></script>
-  <script type="text/javascript" src="App_Start\Views\JavaScript\Libraries\jquery.shuffle.js"></script>
-  <!--Custom-->
-  <script type="text/javascript" src="App_Start\Views\JavaScript\todo-service-api.js"></script>
-  <script type="text/javascript" src="App_Start\Views\JavaScript\todo-ui-api.js"></script>
-  <script type="text/javascript" src="App_Start\Views\JavaScript\todo-backend-api.js"></script>
-  <!--Templates-->
-  <Templates/>
+  <TDFooter/>
+  <script type="text/javascript">
+    $(function () {
+			<!--ServiceApi.load(function (tasks) {-->
+				var element = $("#tasklist"),
+						template = UiApi.compileTemplate("#task-template"),
+            projectId = document.getElementById('project').getAttribute('data-id');
+            ServiceApi.loadMany(projectId, "/projecttasks", function(tasks){
+											element.append(template(tasks["items"]));
+											UiApi.shuffleItems(element);
+											UiApi.shuffleFilter(element);
+            });
+
+			<!--}, "tasks");-->
+    });
+  </script>
 </footer>

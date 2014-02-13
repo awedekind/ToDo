@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using FubuCore;
+﻿using FubuCore;
 
 namespace ToDo.Models.Input
 {
@@ -12,16 +8,7 @@ namespace ToDo.Models.Input
         string Id { get; set; }
     }
 
-    public class UrlSaveUpdateInputModel : IRavenId
-    {
-        public string Description { get; set; }
-        public string Name { get; set; }
-        public string Id { get; set; }
-        public string IdType { get; set; }
-        public string Status { get; set; }
-    }
-
-    public class UrlIdInputModel : IRavenId
+    public class TaskPageInput : IRavenId
     {
         public string IdType { get; set; }
         public string Id { get; set; }

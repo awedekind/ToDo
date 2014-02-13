@@ -1,43 +1,81 @@
-﻿
-<script id="task-template" type="text/x-handlebars-template">
+﻿<div id="templates">
+    <script id="task-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div id="{{id}}" class="item {{status}}" data-groups='["all","{{status}}"]'>
+            <h3>{{name}}</h3>
+            <p>{{description}}</p>
+            <p>Status: {{status}}</p>
+            <a href="#" class="float-right" id="updatetask" data-id="{{id}}" data-name="{{name}}"
+                data-status="{{status}}" data-description="{{description}}" data-projectid="${Model.Id}">Update</a>
+            <a href="#" class="float-right" id="removetask" data-id="{{id}}">Remove</a>
+        </div>
+        {{/each}}
+    </script>
+
+  <script id="project-template" type="text/x-handlebars-template">
     {{#each this}}
-    <div id="{{id}}" class="task {{status}}" data-groups='["all","{{status}}"]'>
-        <h3>{{name}}</h3>
-        <p>{{description}}</p>
-        <p>Status: {{status}}</p>
-        <a href="#" class="float-right" id="updatetask" data-id="{{id}}" data-name="{{name}}"
-           data-status="{{status}}" data-description="{{description}}">Update</a>
-        <a href="#" class="float-right" id="removetask" data-id="{{id}}">Remove</a>
+    <div id="{{id}}" class="item">
+      <a href="taskpage/{{id}}" id="projecttaskpage" data-id="{{id}}"><h3>{{name}}</h3></a>
+      <p>{{description}}</p>
+      <a href="#" class="float-right" id="updateproject" data-id="{{id}}" data-name="{{name}}"
+          data-description="{{description}}">Update</a>
+      <a href="#" class="float-right" id="removeproject" data-id="{{id}}">Remove</a>
     </div>
     {{/each}}
-</script>
+  </script>
+  
+    <script id="new-task-modal-template" class="modal" type="text/x-handlebars-template">
+        <form id="newtaskform" class="modal">
+            <h2>Enter new Task:</h2>
+            <label for="name">Name: </label>
+            <input type="text" name="name" value="Task Name" /></br>
+            <label for="description">Description: </label>
+            <input type="text" name="description" value="Task Description" /></br>
+						<input type="hidden" name="projectId" value="${Model.Id}"/>
+            <input id="newtaskmodal" type="button" name="createTask" value="Create" />
+        </form>
+    </script>
 
-<script id="new-task-modal-template" class="modal" type="text/x-handlebars-template">
-    <form id="newtaskform" class="modal">
-        <h2>Enter new Task:</h2>
-        <label for="name">Name: </label>
-        <input type="text" name="name" value="Task Name" /></br>
-        <label for="description">Description: </label>
-        <input type="text" name="description" value="Task Description" /></br>
-        <input id="newtaskmodal" type="button" name="createTask" value="Create" />
-    </form>
-</script>
+    <script id="new-project-modal-template" class="modal" type="text/x-handlebars-template">
+        <form id="newprojectform" class="modal">
+            <h2>Enter new Project</h2>
+            <label for="name">Name: </label>
+            <input type="text" name="name" value="Project Name"/></br>
+            <label for="description">Description: </label>
+            <input type="text" name="description" value="Project Description" /></br>
+            <input id="newprojectmodal" type="button" name="createProject" value="Create"/>
+        </form>
 
-<script id="update-task-modal-template" type="text/x-handlebars-template">
-    <form id="updatetaskform" class="modal ">
-        <h2>Update Task: {{name}}</h2>
-        <label for="name">Name: </label>
-        <input type="text" name="name" value="{{name}}" /></br>
-        <label for="description">Description: </label>
-        <input type="text" name="description" value="{{description}}" /></br>
-        <label for="status">Status: </label>
-        <select name="status">
-            <option value="ToDo">ToDo</option>
-            <option value="Doing">Doing</option>
-            <option value="Done">Done</option>
-        </select>
-        <input type="hidden" name="id" value="{{id}}" />
-        <!--<input type="hidden" name="status" value="{{status}}" /></br>-->
-        <input id="updatetaskmodal" type="button" name="updateTasky" value="Update" />
-    </form>
-</script>
+    </script>
+
+    <script id="update-task-modal-template" type="text/x-handlebars-template">
+        <form id="updatetaskform" class="modal ">
+            <h2>Update Task: {{name}}</h2>
+            <label for="name">Name: </label>
+            <input type="text" name="name" value="{{name}}" /></br>
+            <label for="description">Description: </label>
+            <input type="text" name="description" value="{{description}}" /></br>
+            <label for="status">Status: </label>
+            <select name="status">
+                <option value="ToDo">ToDo</option>
+                <option value="Doing">Doing</option>
+                <option value="Done">Done</option>
+            </select>
+            <input type="hidden" name="id" value="{{id}}" />
+						<input type="hidden" name="projectid" value="{{projectid}}"/>
+            <input id="updatetaskmodal" type="button" name="updateTasky" value="Update" />
+        </form>
+    </script>
+
+		<script id="update-project-modal-template" type="text/x-handlebars-template">
+				<form id="updateprojectform" class="modal">
+						<h2>Update Project: {{name}}</h2>
+						<label for="name">Name: </label>
+						<input type="text" name="name" value="{{name}}"/></br>
+						<label for="description">Description: </label>
+						<input type="text" name="description" value="{{description}}"/></br>
+						<input type="hidden" name="id" value="{{id}}"/>
+						<input id="updateprojectmodal" type="button" name="updateproject" value="Update"/>
+				</form>
+		</script>
+</div>

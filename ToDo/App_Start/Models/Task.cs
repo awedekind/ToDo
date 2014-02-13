@@ -7,11 +7,8 @@ using Newtonsoft.Json.Converters;
 
 namespace ToDo.Models
 {
-    public class Task
+    public class Task : Project
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
         public State Status { get; set; }
 
@@ -24,18 +21,19 @@ namespace ToDo.Models
         //{
         //}
 
-				public Task(string name, string description)
-            : this(name, description, "")
+        public Task(string projectId, string name, string description)
+            : this(projectId, name, description, "")
         {
         }
 
-				public Task(string name, string description, string status)
-            : this(name, description, Task.StateFromString(status))
+        public Task(string projectId, string name, string description, string status)
+            : this(projectId, name, description, Task.StateFromString(status))
         {
         }
 
-        public Task(string name, string description, State status)
+        public Task(string projectId, string name, string description, State status)
         {
+            ProjectId = projectId;
             Name = name;
             Description = description;
             Status = status;
@@ -43,15 +41,7 @@ namespace ToDo.Models
 
         public static State StateFromString(string status)
         {
-            if (status.Equals("Doing"))
-            {
-                return State.Doing;
-            }
-            else if (status.Equals("Done"))
-            {
-                return State.Done;
-            }
-            return State.ToDo;
+            return status.Equals("Doing") ? State.Doing : (status.Equals("Done") ? State.Done : State.ToDo);
         }
 
     }

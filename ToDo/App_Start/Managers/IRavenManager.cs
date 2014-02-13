@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using ToDo.Models;
 
+
 namespace ToDo.Managers
 {
-    public interface IRavenManager
+    public interface IRavenManager<T> where T : Project
     {
-        IList<Task> LoadAllTasks();
-        Task LoadTask(string id);
-        Task SaveTask(Task task);
-        void RemoveTask(string id);
+        IList<T> LoadAll();
+        T Load(string id);
+        T Save(T obj, string id);
+        IList<T> LoadMany (string projectId);
+        string Remove(string id);
     }
 }
