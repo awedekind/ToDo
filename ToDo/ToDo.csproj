@@ -209,9 +209,11 @@
     <Content Include="App_Start\Views\JavaScript\Libraries\jquery.shuffle.js" />
     <Content Include="App_Start\Views\JavaScript\Libraries\jquery.simplemodal-1.4.4.js" />
     <Content Include="App_Start\Views\JavaScript\todo-backend-api.js" />
+    <Content Include="App_Start\Views\JavaScript\todo-init.js" />
     <Content Include="App_Start\Views\JavaScript\todo-service-api.js" />
     <Content Include="App_Start\Views\JavaScript\todo-ui-api.js" />
     <Content Include="App_Start\Views\CSS\styles.less" />
+    <None Include="App_Start\Views\ToDo\_ProjectTemplates.spark" />
     <Content Include="App_Start\Views\ToDo\_ShuffleFilter.spark" />
     <Content Include="App_Start\Views\ToDo\ProjectPage.spark" />
     <Content Include="App_Start\Views\ToDo\_TDFooter.spark" />
@@ -219,7 +221,7 @@
     <None Include="App_Start\Views\ToDo\_Templates.spark" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
-    <Content Include="App_Start\Views\ToDo\TaskPage.spark">
+    <Content Include="App_Start\Views\ToDo\DutyPage.spark">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Start\Views\JavaScript\Libraries\jquery-2.1.0.min.js" />
@@ -239,7 +241,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\Controllers\DutyController.cs" />
     <Compile Include="App_Start\Controllers\HomeController.cs" />
+    <Compile Include="App_Start\Controllers\ProjectController.cs" />
     <Compile Include="App_Start\JsonWriter\JsonWriterStrEnum.cs" />
     <Compile Include="App_Start\Managers\IRavenManager.cs" />
     <Compile Include="App_Start\Managers\RavenManager.cs" />
@@ -247,9 +251,9 @@
     <Compile Include="App_Start\Models\Input\UrlInputModels.cs" />
     <Compile Include="App_Start\Models\Output\JsonOutputModels.cs" />
     <Compile Include="App_Start\Models\Output\ProjectPageViewModel.cs" />
-    <Compile Include="App_Start\Models\Output\TaskPageViewModel.cs" />
+    <Compile Include="App_Start\Models\Output\DutyPageViewModel.cs" />
     <Compile Include="App_Start\Models\Project.cs" />
-    <Compile Include="App_Start\Models\Task.cs" />
+    <Compile Include="App_Start\Models\Duty.cs" />
     <Compile Include="App_Start\SparkWebMvc.cs" />
     <Compile Include="App_Start\Registries\ConfigureFubuMVC.cs" />
     <Compile Include="App_Start\Tests\HomeEndpointTests.cs" />
