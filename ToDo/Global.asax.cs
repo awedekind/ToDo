@@ -31,7 +31,7 @@ namespace ToDo
                     x.ConnectToRavenDb<RavenDbSettings>();
                     x.For<IDocumentSession>().Use(store.OpenSession);
                     x.For<IDocumentStore>().Use(store);
-                    x.For<IRavenManager<Task>>().Use<RavenManager<Task>>();
+                    x.For<IRavenManager<Duty>>().Use<RavenManager<Duty>>();
                     x.For<IRavenManager<Project>>().Use<RavenManager<Project>>();
                 }))
                 .Bootstrap();

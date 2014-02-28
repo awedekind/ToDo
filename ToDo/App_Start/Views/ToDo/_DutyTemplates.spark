@@ -1,0 +1,45 @@
+﻿<div id="templates">
+  <script id="duty-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <div id="{{id}}" class="item {{status}}" data-groups='["all","{{status}}"]'>
+      <h3>{{name}}</h3>
+      <p>{{description}}</p>
+      <p>Status: {{status}}</p>
+      <a href="#" class="float-right" id="updateduty" data-id="{{id}}" data-name="{{name}}"
+        data-status="{{status}}" data-description="{{description}}" data-projectid="${Model.Project.Id}">Update</a>
+      <a href="#" class="float-right" id="removeduty" data-id="{{id}}">Remove</a>
+    </div>
+    {{/each}}
+  </script>
+
+  <script id="new-duty-modal-template" class="modal" type="text/x-handlebars-template">
+    <form id="newdutyform" class="modal">
+      <h2>Enter new Duty:</h2>
+      <label for="name">Name: </label>
+      <input type="text" name="name" value="Duty Name" /></br>
+      <label for="description">Description: </label>
+      <input type="text" name="description" value="Duty Description" /></br>
+      <input type="hidden" name="projectId" value="${Model.Project.Id}"/>
+      <input id="newdutymodal" type="button" name="createDuty" value="Create" />
+    </form>
+  </script>
+
+  <script id="update-duty-modal-template" type="text/x-handlebars-template">
+    <form id="updatedutyform" class="modal ">
+      <h2>Update Duty: {{name}}</h2>
+      <label for="name">Name: </label>
+      <input type="text" name="name" value="{{name}}" /></br>
+      <label for="description">Description: </label>
+      <input type="text" name="description" value="{{description}}" /></br>
+      <label for="status">Status: </label>
+      <select name="status">
+        <option value="ToDo">ToDo</option>
+        <option value="Doing">Doing</option>
+        <option value="Done">Done</option>
+      </select>
+      <input type="hidden" name="id" value="{{id}}" />
+      <input type="hidden" name="projectid" value="{{projectid}}"/>
+      <input id="updatedutymodal" type="button" value="Update" />
+    </form>
+  </script>
+</div>

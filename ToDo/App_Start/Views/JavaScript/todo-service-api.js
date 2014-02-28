@@ -5,6 +5,7 @@
             return $0.toLowerCase();
         });
     };
+
     var regexReplace = function (data, regex, replacer) {
         return JSON.parse(data.replace(regex, replacer));
     };
@@ -19,7 +20,6 @@
     };
 
     var loadMany = function (id, url, callback) {
-        console.log(id);
         var json = { id: id };
         $.ajax({
             url: url,
@@ -33,7 +33,6 @@
     };
 
     var modify = function (item, url, callback) {
-        console.log(JSON.stringify(item));
         $.ajax({
             url: url,
             type: "POST",
@@ -47,7 +46,6 @@
 
     var remove = function (id, url, callback) {
         var json = { id: id };
-        console.log(JSON.stringify(json));
         $.ajax({
             url: url,
             type: "POST",

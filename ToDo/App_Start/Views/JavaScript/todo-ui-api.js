@@ -20,12 +20,12 @@
 
     /* reshuffle when user clicks a filter item */
     var shuffleFilter = function ($grid) {
-        $('#filter a').click(function (e) {
+        $("#filter a").click(function (e) {
             //e.preventDefault();
-            $('#filter a').removeClass('active');
-            $(this).addClass('active');
-            var groupName = $(this).attr('data-group'); 
-            $grid.shuffle('shuffle', groupName);
+            $("#filter a").removeClass("active");
+            $(this).addClass("active");
+            var groupName = $(this).attr("data-group"); 
+            $grid.shuffle("shuffle", groupName);
             return false;
         });
     };
@@ -37,7 +37,3 @@
         compileTemplate: compileTemplate
     };
 }());
-
-
-
-

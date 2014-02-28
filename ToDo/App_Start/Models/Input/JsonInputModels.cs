@@ -10,7 +10,7 @@ namespace ToDo.Models.Input
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public string ProjectId { get; set; }
+        public string Id { get; set; }
     }
 
     public class IdJsonInput
@@ -18,21 +18,13 @@ namespace ToDo.Models.Input
         public string Id { get; set; }
     }
 
-    public class UpdateJsonInput
+    public class UpdateProjectJsonInput : SaveJsonInput
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Id { get; set; }
-        public string ProjectId { get; set; }
+        public IList<Duty> Duties { get; set; }
+        public Duty Duty { get; set; }
     }
 
-    public class UpdateProjectJsonInput : UpdateJsonInput
-    {
-        public IList<Task> Tasks { get; set; }
-        public Task Task { get; set; }
-    }
-
-    public class UpdateTaskJsonInput : UpdateJsonInput
+    public class UpdateDutyJsonInput : SaveJsonInput
     {
         public string Status { get; set; }
     }

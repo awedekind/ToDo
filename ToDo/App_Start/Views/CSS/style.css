@@ -10,18 +10,24 @@ header {
 
     header h1 {
         margin-left: 5%;
+        font-size: 40px;
     }
 
 a {
     background: #ccc;
     display: block;
     float: left;
+    text-decoration: none;
+    color: Chocolate;
 }
 
-.new-item {
-    margin-top: 15px;
-    padding: 2px;
-    border: 1px solid black;
+#projectdutypage {
+    font-size: 175%;
+    margin-top: 5px;
+    margin-left: 3%;
+    margin-right: 5%;
+    float: none;
+    font-weight: bold;
 }
 
 #filter {
@@ -32,9 +38,18 @@ a {
         margin: 3px;
         padding: 2px;
         border: 1px solid black;
+        color: black;
     }
 
+#dutylist {
+    clear: both;
+    position: relative;
+}
 
+#projectlist {
+    clear: both;
+    position: relative;
+}
 
 .float-left {
     float: left;
@@ -55,14 +70,9 @@ a {
     width: 400px;
 }
 
-#tasklist {
-    clear: both;
-    position: relative;
-}
-
-#projectlist {
-    clear: both;
-    position: relative;
+.new-item {
+    padding: 2px;
+    border: 1px solid black;
 }
 
 .item {
@@ -74,12 +84,22 @@ a {
 
     .item p {
         position: relative;
+        margin: 3%;
     }
 
     .item a {
-        margin: 3px;
         padding: 2px;
         border: 1px solid black;
+    }
+
+    .item h3 {
+        background-color: #ccc;
+        color: Chocolate;
+        font-size: 175%;
+        border: 1px solid black;
+        margin-top: -1%;
+        margin-left: 3%;
+        margin-right: 5%;
     }
 
 .Doing {

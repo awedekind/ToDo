@@ -1,7 +1,8 @@
 ﻿$(function () {
     var liveClick = function (selector, handler) {
-        $(document).on('click', selector, handler);
-    },
+        $(document).on("click", selector, handler);
+        return false;
+        },
         arrayToSensibleObject = function (array) {
             return _.reduce(array, function (acc, item) {
                 acc[item.name] = item.value;
@@ -9,99 +10,74 @@
             }, {});
         };
 
-    //liveClick('#projecttaskpage', function() {
-    //    var id = $(this).data()["id"];
-    //    ServiceApi.loadPage(id, "taskpage");
-    //    return false;
-    //});
-
-    //liveClick('#projectspage', function () {
-    //    console.log("liveclickin");
-    //    ServiceApi.loadPage(null, "home");
-    //    return false;
-    //});
-
-    liveClick('#removetask', function () {
+    liveClick("#removeduty", function () {
         var id = $(this).data()["id"];
-        ServiceApi.remove(id, "/taskremove", function(data) {
-            console.log(data);
+        ServiceApi.remove(id, "/duty/remove", function(data) {
+          //todo
         });
-        return false;
     });
 
-    liveClick('#removeproject', function() {
+    liveClick("#removeproject", function() {
         var id = $(this).data()["id"];
-        console.log(id);
-        ServiceApi.remove(id, "/projectremove", function(data) {
-            console.log(data);
+        ServiceApi.remove(id, "/project/remove", function(data) {
+          //todo
         });
-        return false;
     });
 
-    liveClick('#updatetask', function () {
-        console.log($(this));
-        var taskData = $(this).data();
-        console.log(taskData);
-        UiApi.genModal("#update-task-modal-template", taskData);
-        return false;
+    liveClick("#updateduty", function () {
+        var dutyData = $(this).data();
+        UiApi.genModal("#update-duty-modal-template", dutyData);
     });
 
-    liveClick('#updateproject', function () {
+    liveClick("#updateproject", function () {
         var projectData = $(this).data();
         UiApi.genModal("#update-project-modal-template", projectData);
-        return false;
     });
 
-    liveClick('#newtask', function () {
+    liveClick("#newduty", function () {
         var projectData = $(this).data();
-        console.log(JSON.stringify(projectData));
-        UiApi.genModal("#new-task-modal-template", projectData);
-        return false;
+        UiApi.genModal("#new-duty-modal-template", projectData);
     });
-    //$('#newtask').click(function () {
-    //    UiApi.genModal("#new-task-modal-template");
-    //    return false;
-    //});
-    liveClick('#newtaskmodal', function () {
-        var array = $('#newtaskform').serializeArray(),
+
+    liveClick("#newdutymodal", function () {
+        var array = $("#newdutyform").serializeArray(),
             data = arrayToSensibleObject(array);
-        ServiceApi.modify(data, "/tasknew", function(data) {
-            console.log(data);
+        console.log(JSON.stringify(data));
+        ServiceApi.modify(data, "/duty/new", function(data) {
+          //todo
         });
         $.modal.close();
-        return false;
     });
 
-    liveClick('#newprojectmodal', function () {
-        var array = $('#newprojectform').serializeArray(),
+    liveClick("#newprojectmodal", function () {
+        var array = $("#newprojectform").serializeArray(),
             data = arrayToSensibleObject(array);
 
-        ServiceApi.modify(data, "/projectnew", function (data) {
-            console.log(data);
+        ServiceApi.modify(data, "/project/new", function (data) {
             //todo
         });
         $.modal.close();
-        return false;
     });
 
-    liveClick('#updatetaskmodal', function () {
-        var array = $('#updatetaskform').serializeArray(),
+    liveClick("#updatedutymodal", function () {
+        var array = $("#updatedutyform").serializeArray(),
             data = arrayToSensibleObject(array);
-        ServiceApi.modify(data, "/taskupdate");
+        ServiceApi.modify(data, "/duty/update", function (data) {
+            //todo
+        });
         $.modal.close();
-        return false;
     });
 
-    liveClick('#updateprojectmodal', function () {
-        var array = $('#updateprojectform').serializeArray(),
+    liveClick("#updateprojectmodal", function () {
+        var array = $("#updateprojectform").serializeArray(),
             data = arrayToSensibleObject(array);
-        ServiceApi.modify(data, "/projectupdate");
+        ServiceApi.modify(data, "/project/update", function (data) {
+            //todo
+        });
         $.modal.close();
-        return false;
     });
 
-
-    $('#newproject').click(function () {
+    $("#newproject").click(function () {
         UiApi.genModal("#new-project-modal-template");
         return false;
     });

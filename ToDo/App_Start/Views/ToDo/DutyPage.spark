@@ -1,0 +1,28 @@
+﻿<TDHeader/>
+
+<body>
+  <header>
+    <h1>Duties: ${Model.Project.Name}</h1>
+  </header>
+  <viewdata model="ToDo.Models.Output.DutyPageViewModel"/>
+  <div id="project" data-id="${Model.Project.Id}"/>
+    ID:${Model.Project.Id}</br>
+    NAME:${Model.Project.Name}</br>
+    DESCRIPTION:${Model.Project.Description}</br>
+    DUTIES:${Model.Project.Duties}</br>
+  <div>
+    <a href="#" class="float-right new-item" id="newduty">New Duty</a>
+    <a href="\" class="float-right new-item" id="projectspage">Projects</a>
+    <ShuffleFilter/>
+  </div>
+  <!--<DutyList/>-->
+  <div id="dutylist"></div>
+</body>
+
+<footer>
+  <TDFooter/>
+  <DutyTemplates/>
+  <script type="text/javascript">
+    $(InitApi.dutyPageInit());
+  </script>
+</footer>

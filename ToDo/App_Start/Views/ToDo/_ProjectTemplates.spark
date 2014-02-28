@@ -1,0 +1,35 @@
+﻿<div id="project-templates">
+  <script id="project-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <div id="{{id}}" class="item">
+      <a href="dutypage/{{id}}" class="float-left" id="projectdutypage" data-id="{{id}}">{{name}}</a>
+      <p>{{description}}</p>
+      <a href="#" class="float-right" id="updateproject" data-id="{{id}}" data-name="{{name}}"
+        data-description="{{description}}">Update</a>
+      <a href="#" class="float-right" id="removeproject" data-id="{{id}}">Remove</a>
+    </div>
+    {{/each}}
+  </script>
+
+  <script id="new-project-modal-template" class="modal" type="text/x-handlebars-template">
+    <form id="newprojectform" class="modal">
+      <h2>Enter new Project</h2>
+      <input type="text" name="name" value="Project Name"/></br>
+      <label for="description">Description: </label>
+      <input type="text" name="description" value="Project Description" /></br>
+      <input id="newprojectmodal" type="button" name="createProject" value="Create"/>
+    </form>
+  </script>
+
+  <script id="update-project-modal-template" type="text/x-handlebars-template">
+    <form id="updateprojectform" class="modal">
+      <h2>Update Project: {{name}}</h2>
+      <label for="name">Name: </label>
+      <input type="text" name="name" value="{{name}}"/></br>
+      <label for="description">Description: </label>
+      <input type="text" name="description" value="{{description}}"/></br>
+      <input type="hidden" name="id" value="{{id}}"/>
+      <input id="updateprojectmodal" type="button" name="updateproject" value="Update"/>
+    </form>
+  </script>
+</div>

@@ -7,7 +7,7 @@ using ToDo.Models;
 
 namespace ToDo.Managers
 {
-    public class RavenManager<T> : IRavenManager<T> where T : Project
+    public class RavenManager<T> : IRavenManager<T> 
     {
         private readonly IDocumentSession _session;
 
@@ -21,10 +21,10 @@ namespace ToDo.Managers
             return _session.Load<T>(id);
         }
 
-        public IList<T> LoadMany(string projectId)
-        {
-							return _session.Query<T>().Where(x => x.ProjectId == projectId).ToList();
-        }
+        //public IList<T> LoadMany(string projectId)
+        //{
+        //                    return _session.Query<T>().Where(x => x.ProjectId == projectId).ToList();
+        //}
 
         public IList<T> LoadAll()
         {

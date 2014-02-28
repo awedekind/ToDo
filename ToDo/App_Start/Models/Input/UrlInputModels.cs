@@ -8,7 +8,7 @@ namespace ToDo.Models.Input
         string Id { get; set; }
     }
 
-    public class TaskPageInput : IRavenId
+    public class DutyPageInput : IRavenId
     {
         public string IdType { get; set; }
         public string Id { get; set; }
@@ -21,4 +21,4 @@ namespace ToDo.Models.Input
             return "{0}/{1}".ToFormat(instance.IdType, instance.Id);
         }
     }
-}
+i
