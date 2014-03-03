@@ -31,5 +31,8 @@ namespace ToDo.Controllers
 								Project = project
             };
         }
+        public void amethod(){
+          //This method was made to create a change, so a I can play with pushing a file using fugitive.vim
+        }
     }
 }
